@@ -1,2 +1,2 @@
 #!/bin/bash
-cmod -R uog=rwx
+cmod -R uog+X
