@@ -1,2 +1,2 @@
 #!/bin/bash
-cp -u *file.html destination
+cp -u *.html destination
