@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Script that installs Nginx server and redirects /redirect_me
-apt-get -y update
+# installs and makes nginx serve a page containing 'Hello World!'
+apt-get update
 apt-get -y install nginx
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
-sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Mike15254 permanent;/" /etc/nginx/sites-available/default
+REDIR_STR="\\\tlocation /redirect_me {\n\t\treturn 301 https://www.youtub.com/watch?v=d_nVQe427wg;\n\t}\n"
+sed -i "47i $REDIR_STR" /etc/nginx/sites-available/default
 service nginx start
